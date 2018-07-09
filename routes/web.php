@@ -17,12 +17,15 @@ Route::get('/', function () {
 });
 
 
+
 Route::get('/usuarios','ControladorUsuario@usuarios');
+
 
 
 /* Expresiones regualeres \d+*/
 Route::get('usuarios/{id}','ControladorUsuario@id')
 	->where('id','\d+');
+
 
 
 Route::get('usuarios/nuevo','ControladorUsuario@nuevo');
