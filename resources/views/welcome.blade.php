@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Homestead Test pruebas
+                    Prueba Push github
                 </div>
 
                 <div class="links">
