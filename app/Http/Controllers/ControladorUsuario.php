@@ -16,10 +16,19 @@ class ControladorUsuario extends Controller
             '<script> alert("Clicker")</script>'
         ];
 
-        return view('usuarios')->with(['users'=>$users,'titulo'=>'Listado de usuarios']);
+        $titulo='Listado de usuarios';
 
-        // esta es otra forma de mandar parametros a la vista.
-    	//return view('usuarios',['users'=>$users,'titulo'=>'Listado de usuarios']);
+        return view('usuarios',compact('users','titulo'));
+        /**  esta es otra forma de mandar parametros a la vista.
+        return view('usuarios',['users'=>$users,'titulo'=>'Listado de usuarios']);
+        
+        return view('usuarios')
+        ->with('users',$users)
+        ->with('titulo','Listado de usuarios');
+
+        return view('usuarios')->with(['users'=>$users,'titulo'=>'Listado de usuarios']);
+        
+        **/
     }
 
     public function id($id)
