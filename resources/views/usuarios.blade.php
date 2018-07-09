@@ -26,7 +26,9 @@
 		<p>No existen usuarios registrados</p>
 
 	@endforelse
-	</ul>	 
+	</ul>
+
+	{{ time() }}
 
 
 <!--  Distintas formas de realizar lo anterior con Laravel.blade
@@ -48,7 +50,7 @@ Imprimir la variable $user con PHP plano.
 <?php foreach ($users as $user):?> 
  		<?= e($user) ?>
   <?php endforeach ?> 
-  
+
 ------------------------------------------------------------- -->
  
 </h2>

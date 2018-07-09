@@ -44,13 +44,16 @@ class ControladorUsuario extends Controller
 
     public function id($id)
     {
-    	return "Mostrando detalle del usuario {$id}";
+    	return view('detalleUsuario',compact('id'));
+        //      ->with('id',$id);
+        //return "Mostrando detalle del usuario {$id}";
     }
 
 
     public function nuevo()
     {
-    	return "Crear un usuario";
+    	return view('nuevo');
+        //return "Crear un usuario";
     }
 
     
