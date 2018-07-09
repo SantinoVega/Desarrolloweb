@@ -9,7 +9,17 @@ class ControladorUsuario extends Controller
     //
     public function usuarios()
     {
-    	return view('usuarios');
+        $users=[
+            "Mariana",
+            "Paty",
+            "Dulce",
+            '<script> alert("Clicker")</script>'
+        ];
+
+        return view('usuarios')->with(['users'=>$users,'titulo'=>'Listado de usuarios']);
+
+        // esta es otra forma de mandar parametros a la vista.
+    	//return view('usuarios',['users'=>$users,'titulo'=>'Listado de usuarios']);
     }
 
     public function id($id)
