@@ -1,0 +1,36 @@
+
+1----------------------------------------------
+CREAR Y SUBIR UN REPOCITORIO DESDE 0. (Proyecto laravel ya existe)
+
+
+-Primero se crea un repositorio vacio en GitHub.com
+-Debemos tener un proyecto (Laravel) ya creado.
+-En terminal navegamos hasta la carpeta del proyecto. y tecleamos
+
+# git init		
+-Crea repositorio vacio
+
+# git add .
+-Agrega todos los archivos de la carpeta actual al repositorio local (stage)
+
+#git remote add origin https://github.com/rutaDelProyecto
+-Se agrega la direccion web a donde se enviara nuestro proyecto.(Este paso se hace solo 1 vez por proyecto).
+
+#git commit -m "mensaje descripticvo"
+-Confirma los cambios en el repositorio local
+
+#git push -u origin master
+-Sube las modificaciones al repositorio remoto
+
+--------------------------------------------------------------
+
+ACTUALIZAR REPOSITORIO EN DESARROLLO.
+
+# git add .		-Agrega todos los archivos de la carpeta actual al repositorio local (stage)
+
+#git commit -m "mensaje descripticvo"
+-Confirma los cambios en el repositorio local
+
+#git push -u origin master
+-Sube las modificaciones al repositorio remoto
+
