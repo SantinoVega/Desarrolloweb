@@ -9,7 +9,7 @@ class ControladorUsuario extends Controller
     //
     public function usuarios()
     {
-    	return 'Usuarios';
+    	return view('usuarios');
     }
 
     public function id($id)
