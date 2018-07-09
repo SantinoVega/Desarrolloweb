@@ -21,6 +21,19 @@ class UsuariosTest extends TestCase
              ->assertSee('Dulce');
     }
 
+
+     /**
+     * @test
+     */
+    function RutaUsuariosVacia()
+    {
+        $this->get('/usuarios?empty')
+             ->assertStatus(200)
+             ->assertSee('Listado de usuarios')
+             ->assertSee('No existen usuarios registrados');
+    }
+
+
     /**
     * @test 
     **/

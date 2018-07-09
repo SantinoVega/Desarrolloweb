@@ -10,23 +10,46 @@
 			
 	</h1>
 
+	<hr>
+
 <h2>
 	
 <!-- De esta forma se realiza con plantillas de LARAVEL -->
- @foreach($users as $user)
+
+
 	<ul>
+ 	@forelse($users as $user)
 		<li>
 			{{ $user }}
-		</li>	
-	</ul>
+		</li>
+	@empty
+		<p>No existen usuarios registrados</p>
 
-@endforeach
+	@endforelse
+	</ul>	 
 
 
-<!--  De esta forma se realiza con PHP
+<!--  Distintas formas de realizar lo anterior con Laravel.blade
+	  y utilizando PHP plano.
+
+---------------------------------------------------------------
+Directivas de laravel con blade Podemos reducir codigo PHP utilizando las directivas (forma corta de laravel.blade)
+
+@if(!empty($users))
+@endif
+
+@empty($users)
+@else
+@endempty
+
+----------------------------------------------------------------
+Imprimir la variable $user con PHP plano.
+
 <?php foreach ($users as $user):?> 
  		<?= e($user) ?>
-  <?php endforeach ?> -->
+  <?php endforeach ?> 
+  
+------------------------------------------------------------- -->
  
 </h2>
 

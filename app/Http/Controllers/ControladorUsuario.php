@@ -9,12 +9,20 @@ class ControladorUsuario extends Controller
     //
     public function usuarios()
     {
-        $users=[
-            "Mariana",
-            "Paty",
-            "Dulce",
-            '<script> alert("Clicker")</script>'
-        ];
+        if(request()->has('empty'))
+        {
+            $users=[];
+        }
+        else
+        {
+            $users=[
+                "Mariana",
+                "Paty",
+                "Dulce",
+                '<script> alert("Clicker")</script>'
+            ];
+            
+        }
 
         $titulo='Listado de usuarios';
 
