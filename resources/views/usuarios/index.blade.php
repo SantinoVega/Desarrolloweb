@@ -35,8 +35,7 @@ se cambiara esta directiva por la siguiente para tener mayor legilibilidad.   --
 @endsection
 
 @section('sidebar')
-  
-<h2>Barra Lateral sobreescrita</h2>
+   <h2>Barra Lateral sobreescrita</h2>
 @endsection
 
 

@@ -10,26 +10,26 @@ INICIAR HOMESTEAD CON VAGRANT (MAQUINA VIRTUAL)
 
 
 #vagrant global-status
--Nos muestra si existe alguna maquina virtual
+	*Nos muestra si existe alguna maquina virtual
 
 #vagrant up
--Si existe una maquina virtual la inicia, sino la crea e inicia.
--Si tenemos mas de una maquina virtual se debe especificar agregando el ID
+	*Si existe una maquina virtual la inicia, sino la crea e inicia.
+	*Si tenemos mas de una maquina virtual se debe especificar agregando el ID
 
 #vagrant reload --provision
--Si modificamos la configuracion de Homestead.yaml necesitaremos recargar la maquina con la nueva configuracion
+	*Si modificamos la configuracion de Homestead.yaml necesitaremos recargar la maquina con la nueva configuracion
 
 #vagrant halt
--Apaga la maquina virtual
+	*Apaga la maquina virtual
 
 #vagrant suspend
--Suspende la maquina virtual y guarda el estado actual.
+	*Suspende la maquina virtual y guarda el estado actual.
 
 
 -----------------------------------------------------------
 
 
-CREAR Y SUBIR UN REPOCITORIO DESDE 0. (Proyecto laravel ya existe)
+CREAR Y SUBIR UN REPOSITORIO GIT DESDE 0. (Proyecto laravel ya existe)
 
 
 -Primero se crea un repositorio vacio en GitHub.com
@@ -37,49 +37,51 @@ CREAR Y SUBIR UN REPOCITORIO DESDE 0. (Proyecto laravel ya existe)
 -En terminal navegamos hasta la carpeta del proyecto. y tecleamos
 
 # git init		
--Crea repositorio vacio
+	*Crea un repositorio GIT vacio
 
 # git add .
--Agrega todos los archivos de la carpeta actual al repositorio local (stage)
+	*Agrega todos los archivos de la carpeta actual al repositorio local (stage)
 
 #git remote add origin https://github.com/rutaDelProyecto
--Se agrega la direccion web a donde se enviara nuestro proyecto.(Este paso se hace solo 1 vez por proyecto).
+	*Se agrega la direccion web a donde se enviara nuestro proyecto.(Este paso se hace solo 1 vez por proyecto).
+
 
 #git commit -m "mensaje descripticvo"
--Confirma los cambios en el repositorio local
+	*Confirma los cambios en el repositorio local
+
 
 #git push -u origin master
--Sube las modificaciones al repositorio remoto
+	*Sube las modificaciones al repositorio remoto
 
 
---------------------------------------------------------------
+-------------------------------------------------------------
 
 
 ACTUALIZAR REPOSITORIO EN DESARROLLO.
 
 
-# git add .		
--Agrega todos los archivos de la carpeta actual al repositorio local (stage)
+# git add .
+	*Agrega todos los archivos de la carpeta actual al repositorio local (stage)
 
 #git commit -m "mensaje descripticvo"
--Confirma los cambios en el repositorio local
+	*Confirma los cambios en el repositorio local
 
 #git push -u origin master
--Sube las modificaciones al repositorio remoto
+	*Sube las modificaciones al repositorio remoto
 
 
----------------------------------------------------------------
+-------------------------------------------------------------
 
 
-BORRAR VISTAS DE LA CACHE DEL PROYECTO
+BORRAR VISTAS DE LA CACHE DEL PROYECTO LARAVEL
 
 
--Laravel guarda las paginas previamente cargadas en la cache para agilizar la ejecucion, por lo que cuando recargamos una pagina sino a sufrido alguna modificacion la toma de la cache. para eliminar las vistas que estan almacenadas en la cache y asi garantizar que la vista que se muestra es lo que se ha programado
+-Laravel guarda las paginas previamente cargadas en la cache para agilizar la ejecucion, por lo que cuando recargamos una pagina sino a sufrido alguna modificacion la toma de la cache. para eliminar las vistas que estan almacenadas en la cache y asi garantizar que la vista que se muestra es lo que se ha programado borramos la cache de la siguiente forma.
 
 
 # php artisan view:clear
--Limpia la cache de las vistas en el proyecto actual.
--Debemos estar en la carpeta del proyecto.
+	*Limpia la cache de las vistas en el proyecto actual.
+	*Debemos estar en la carpeta del proyecto.
 
 
 --------------------------------------------------------------
@@ -88,10 +90,108 @@ BORRAR VISTAS DE LA CACHE DEL PROYECTO
 CREAR UN ALIAS
 
 
--En este caso se muestra como crear un alias para realizar Test
--En la carpeta dentro del proyecto /vendor/bin/phpunit
+-Como crear un alias para realizar Test
+-podemos ejecutar /vendor/bin/phpunit en la carpeta proyecto
 
 # alias t=vendor/bin/phpunit
 #t
--Se crea un alias "t", que al ser ejecutado realiza los Test del proyecto.
+	*Se crea un alias "t", que al ser ejecutado realiza los Test del proyecto.
 
+
+
+------------------------------------------------------------
+
+MIGRACION - MANEJAR BASES DE DATOS CON LARAVEL
+
+
+Para el tema de base de datos en laravel utilizamos los metodos definidos en laravel. con estas migraciones podemos tener una linea de tiempo de nuestras bases de datos similar a un versionado.
+
+# php artisan migrate
+
+
+-------------------------------------------------------------
+
+
+CONECTAR A LA MAQUINA VIRTUAL POR SSH
+
+
+-Nos ubicamos en la carpeta donde tenemos instalanda la maquina virtual (~/Homestead)
+
+# vagrant ssh
+
+
+-------------------------------------------------------------
+
+INICIAR MYSQL DENTRO DE HOMESTEAD
+
+-Para iniciar mysql en homestead debemos de entrar por SSH a la maquina virtual y una vez que estamos dentro de la maquina virtual ejecutamos el siguiente codigo.
+
+
+#mysql -u root
+
+mysql>
+
+Dentro de la consola de mysql ya podemos ejecutar las queries o acciones que necesitemos.
+
+
+------------------------------------------------------------
+
+
+INICIAR SERVIDOR WEB (XAMPP) TERMINAL
+
+
+-Se necesitan privilegios de superusuario.
+
+
+# sudo /opt/lampp/lampp start
+	*Inicia todos los servicios del servidor web
+# sudo /opt/lampp/lampp startmysql
+	*Inicia solo el servicio mysql
+# sudo /opt/lampp/lampp startapache
+	*Inicia solo el servicio apache
+
+# sudo /opt/lampp/lampp stop
+	*Detiene todos los servicios
+# sudo /opt/lampp/lampp stopmysql
+	*Detiene el servicio especificado
+
+------------------------------------------------------------
+
+INICIAR MYSQL EN NUESTRO SISTEMA OPERATIVO (UBUNTU 16)
+
+
+-Si tenemos instalado algun servidor web (XAMPP,WAMPP,LAMPP)
+podemos iniciar solo el servico que necesitemos en este caso mysql.
+
+
+# /opt/lampp/bin/mysql -u root -p
+MariaDB>
+	*A continuacion nos pide la contraseña de mysql para el usuario root.
+
+
+------------------------------------------------------------
+
+
+COMANDOS BASICOS MYSQL
+
+>use [database]
+	*Selecciona la BD [especificar nombre].
+
+>show databases;
+	*Muestra las BDs almacenadas.
+
+>create database BaseDeDatos;
+	*crea una BD con el nombre "BaseDeDatos".
+
+>show tables;
+	*Muestra las tablas dentro de una BD.
+
+>create table [nombreTabla] 
+([id] int autoincrement,[campo2] varchar(40), ...);
+	*Crea una tabla con [especificar nombre].
+
+>drop [table];
+	*Elimina una tabla [especificar nombre].
+
+>alter table [tabla] add coulumn ([campo] varchar(60));
+	*Agreaga una columna y a la tabla [especificar nombre].

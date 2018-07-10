@@ -27,7 +27,7 @@ class ControladorUsuario extends Controller
         $titulo='Listado de usuarios';
 
 
-        return view('usuarios',compact('users','titulo'));
+        return view('usuarios/index',compact('users','titulo'));
 
         /**  esta es otra forma de mandar parametros a la vista.
         return view('usuarios',['users'=>$users,'titulo'=>'Listado de usuarios']);
@@ -45,7 +45,7 @@ class ControladorUsuario extends Controller
     public function id($id)
     {
 
-    	return view('detalleUsuario',compact('id'));
+    	return view('usuarios/detalleUsuario',compact('id'));
         //      ->with('id',$id);
         //return "Mostrando detalle del usuario {$id}";
     }
