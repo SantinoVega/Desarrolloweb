@@ -44,6 +44,7 @@ class ControladorUsuario extends Controller
 
     public function id($id)
     {
+
     	return view('detalleUsuario',compact('id'));
         //      ->with('id',$id);
         //return "Mostrando detalle del usuario {$id}";

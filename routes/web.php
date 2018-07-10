@@ -32,4 +32,4 @@ Route::get('usuarios/nuevo','ControladorUsuario@nuevo');
 
 
 
-Route::get('usuarios/{name}/{nickname?}','Saludo');
+Route::get('usuarios/{name}/{nick?}','Saludo');

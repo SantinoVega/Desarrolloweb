@@ -1,34 +1,43 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Vista Usuarios</title>
-</head>
-<body>
-	<h1>
-		<!-- <?= e($titulo) ?>  -->
-		{{ $titulo }} 
-			
-	</h1>
+<!-- Con esta directuva se incluye la vista header al archivo
+header contiene el css (estilo) para darde un mejor diseño a la pagina.
+@@include('header') 
+se cambiara esta directiva por la siguiente para tener mayor legilibilidad.   -->
 
-	<hr>
+@extends('layout')
 
-<h2>
-	
-<!-- De esta forma se realiza con plantillas de LARAVEL -->
+@section('content')
+
+		<h1>
+			<!-- <?= e($titulo) ?>  -->
+			{{ $titulo }} 
+				
+		</h1>
+
+		<hr>
+		
+		<h2>	
+<!-- Directivas Laravel - plantillas de LARAVEL -->
+		<ul>
+	 	@forelse($users as $user)
+			<li>
+				{{ $user }}
+			</li>
+		@empty
+			<p>No existen usuarios registrados</p>
+
+		@endforelse
+		</ul>
+
+		{{ time() }}
+		</h2>
 
 
-	<ul>
- 	@forelse($users as $user)
-		<li>
-			{{ $user }}
-		</li>
-	@empty
-		<p>No existen usuarios registrados</p>
+@endsection
 
-	@endforelse
-	</ul>
-
-	{{ time() }}
+@section('sidebar')
+  
+<h2>Barra Lateral sobreescrita</h2>
+@endsection
 
 
 <!--  Distintas formas de realizar lo anterior con Laravel.blade
@@ -51,9 +60,13 @@ Imprimir la variable $user con PHP plano.
  		<?= e($user) ?>
   <?php endforeach ?> 
 
-------------------------------------------------------------- -->
- 
-</h2>
 
-</body>
-</html>
+
+
+
+
+@include('footer')
+
+Se cambio el footer por @seccion y @layout para mejorar la legibilidad
+------------------------------------------------------- -->
+

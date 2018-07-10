@@ -15,10 +15,11 @@ class UsuariosTest extends TestCase
     {
         $this->get('/usuarios')
              ->assertStatus(200)
-             ->assertSee('Usuarios')
+             ->assertSee('Listado de usuarios')
              ->assertSee('Mariana')
              ->assertSee('Paty')
-             ->assertSee('Dulce');
+             ->assertSee('Dulce')
+             ->assertSee('Barra Lateral');
     }
 
 
@@ -41,7 +42,7 @@ class UsuariosTest extends TestCase
     {
         $this->get('/usuarios/5')
              ->assertStatus(200)
-             ->assertSee('Mostrando detalle del usuario 5');
+             ->assertSee('Mostrar detalle de usuario: 5');
     }
 
    /**
