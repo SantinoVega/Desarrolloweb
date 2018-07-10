@@ -10,17 +10,17 @@ INICIAR HOMESTEAD CON VAGRANT (MAQUINA VIRTUAL)
 
 
 #vagrant global-status
-	*Nos muestra si existe alguna maquina virtual
+	*Nos muestra si existe alguna maquina virtual.
 
 #vagrant up
 	*Si existe una maquina virtual la inicia, sino la crea e inicia.
-	*Si tenemos mas de una maquina virtual se debe especificar agregando el ID
+	*Si tenemos mas de una maquina virtual se debe especificar agregando el ID.
 
 #vagrant reload --provision
-	*Si modificamos la configuracion de Homestead.yaml necesitaremos recargar la maquina con la nueva configuracion
+	*Si modificamos la configuracion de Homestead.yaml necesitaremos recargar la maquina con la nueva configuracion.
 
 #vagrant halt
-	*Apaga la maquina virtual
+	*Apaga la maquina virtual.
 
 #vagrant suspend
 	*Suspende la maquina virtual y guarda el estado actual.
@@ -34,43 +34,43 @@ CREAR Y SUBIR UN REPOSITORIO GIT DESDE 0. (Proyecto laravel ya existe)
 
 -Primero se crea un repositorio vacio en GitHub.com
 -Debemos tener un proyecto (Laravel) ya creado.
--En terminal navegamos hasta la carpeta del proyecto. y tecleamos
+-En terminal navegamos hasta la carpeta del proyecto. y tecleamos.
 
 # git init		
-	*Crea un repositorio GIT vacio
+	*Crea un repositorio GIT vacio.
 
 # git add .
-	*Agrega todos los archivos de la carpeta actual al repositorio local (stage)
+	*Agrega todos los archivos de la carpeta actual al repositorio local (stage).
 
 #git remote add origin https://github.com/rutaDelProyecto
 	*Se agrega la direccion web a donde se enviara nuestro proyecto.(Este paso se hace solo 1 vez por proyecto).
 
 
 #git commit -m "mensaje descripticvo"
-	*Confirma los cambios en el repositorio local
+	*Confirma los cambios en el repositorio local.
 
 
 #git push -u origin master
-	*Sube las modificaciones al repositorio remoto
+	*Sube las modificaciones al repositorio remoto.
 
 
--------------------------------------------------------------
+----------------------------------------------------------
 
 
 ACTUALIZAR REPOSITORIO EN DESARROLLO.
 
 
 # git add .
-	*Agrega todos los archivos de la carpeta actual al repositorio local (stage)
+	*Agrega todos los archivos de la carpeta actual al repositorio local (stage).
 
 #git commit -m "mensaje descripticvo"
-	*Confirma los cambios en el repositorio local
+	*Confirma los cambios en el repositorio local.
 
 #git push -u origin master
-	*Sube las modificaciones al repositorio remoto
+	*Sube las modificaciones al repositorio remoto.
 
 
--------------------------------------------------------------
+----------------------------------------------------------
 
 
 BORRAR VISTAS DE LA CACHE DEL PROYECTO LARAVEL
@@ -91,7 +91,7 @@ CREAR UN ALIAS
 
 
 -Como crear un alias para realizar Test
--podemos ejecutar /vendor/bin/phpunit en la carpeta proyecto
+-podemos ejecutar /vendor/bin/phpunit en la carpeta proyecto.
 
 # alias t=vendor/bin/phpunit
 #t
@@ -115,7 +115,7 @@ Para el tema de base de datos en laravel utilizamos los metodos definidos en lar
 CONECTAR A LA MAQUINA VIRTUAL POR SSH
 
 
--Nos ubicamos en la carpeta donde tenemos instalanda la maquina virtual (~/Homestead)
+-Nos ubicamos en la carpeta donde tenemos instalanda la maquina virtual (~/Homestead).
 
 # vagrant ssh
 
@@ -144,18 +144,23 @@ INICIAR SERVIDOR WEB (XAMPP) TERMINAL
 
 
 # sudo /opt/lampp/lampp start
-	*Inicia todos los servicios del servidor web
+	*Inicia todos los servicios del servidor web.
+
 # sudo /opt/lampp/lampp startmysql
-	*Inicia solo el servicio mysql
+	*Inicia solo el servicio mysql.
+
 # sudo /opt/lampp/lampp startapache
-	*Inicia solo el servicio apache
+	*Inicia solo el servicio apache.
 
 # sudo /opt/lampp/lampp stop
-	*Detiene todos los servicios
+	*Detiene todos los servicios.
+
 # sudo /opt/lampp/lampp stopmysql
-	*Detiene el servicio especificado
+	*Detiene el servicio especificado.
+
 
 ------------------------------------------------------------
+
 
 INICIAR MYSQL EN NUESTRO SISTEMA OPERATIVO (UBUNTU 16)
 
@@ -195,3 +200,38 @@ COMANDOS BASICOS MYSQL
 
 >alter table [tabla] add coulumn ([campo] varchar(60));
 	*Agreaga una columna y a la tabla [especificar nombre].
+
+
+--------------------------------------------------------------
+
+
+MIGRACION DE BD.
+
+
+-Es necesario tener creada una base de datos en sql.
+-En el proyecto Laravel/database/migrations existen 2 archivos donde se crean tablas y restablecer contraseña.
+
+
+# php artisan migrate
+	*Ejecuta metodo up() de /migrations.
+	*Crea tablas o las modifica depende de que este programado en el metodo.
+
+# php artisan migrate:reset
+	*Borra las tablas llamando al metodo down()
+	*Se debe ejecutar #php artisan migrade para volver a crear desde los archivos.
+
+# php artisan migrate:refresh 
+	*Ejecuta metodo down() y luego up() de /migrations.
+
+
+# php artisan make:migration [nombre_descriptivo]
+	*Crea un archivo en /migrations para ser migrate.
+
+
+# php artisan migrate:rollback
+	*regresará el último lote de migraciones ejecutado.
+
+
+-------------------------------------------------------------------
+
+

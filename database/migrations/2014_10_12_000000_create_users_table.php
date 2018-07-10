@@ -10,6 +10,7 @@ class CreateUsersTable extends Migration
      * Run the migrations.
      *
      * @return void
+            //$table->string('profession',50)->nullable();
      */
     public function up()
     {
