@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Usuarios Nuevo</title>
-	<link rel="stylesheet" href="">
-</head>
-<body>
-	<p>
+
+	@extends('layout')
+	
+	@seccion('title')
+
+		@section('content')
+		<h1>	
 		Crear un usuario nuevo
-	</p>
-</body>
-</html>
+		</h1>
+		@endsection

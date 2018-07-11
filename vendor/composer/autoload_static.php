@@ -3686,6 +3686,8 @@ class ComposerStaticInitdab122e3c247255e9942452b6111d4b7
         'phpDocumentor\\Reflection\\Types\\String_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/String_.php',
         'phpDocumentor\\Reflection\\Types\\This' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/This.php',
         'phpDocumentor\\Reflection\\Types\\Void_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/Void_.php',
+        'profession_seeder' => __DIR__ . '/../..' . '/database/seeds/profession_seeder.php',
+        'usuarioSeeder' => __DIR__ . '/../..' . '/database/seeds/usuarioSeeder.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
