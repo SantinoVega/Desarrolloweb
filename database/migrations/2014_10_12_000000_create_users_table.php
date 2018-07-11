@@ -16,6 +16,12 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
+
+            $table->unsignedInteger('profession_id'); 
+
+            $table->foreign('profession_id')->references('id')->on('professions');
+
+            
             $table->string('name');
             $table->string('email');
             $table->string('password');

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AgregarProfesionAUsers extends Migration
+class CreateProfessionTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class AgregarProfesionAUsers extends Migration
      */
     public function up()
     {
-        Schema::table('users',function(Blueprint $table)
-        {
-           $table->string('profession',50)->nullable()->after('password');
+        Schema::create('professions', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('profession',100);
+            $table->timestamps();
         });
     }
 
@@ -26,9 +27,6 @@ class AgregarProfesionAUsers extends Migration
      */
     public function down()
     {
-        Schema::table('users',function(Blueprint $table)
-        {
-            $table->dropColumn('profession');
-        });
+        Schema::dropIfExists('profession');
     }
 }

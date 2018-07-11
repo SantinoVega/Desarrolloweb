@@ -57,7 +57,10 @@ CREAR Y SUBIR UN REPOSITORIO GIT DESDE 0. (Proyecto laravel ya existe)
 ----------------------------------------------------------
 
 
-ACTUALIZAR REPOSITORIO EN DESARROLLO.
+SUBIR REPOSITORIO LOCAL A REMOTO.
+
+
+-Actualiza el repositorio remoto con los cambios en repositorio local
 
 
 # git add .
@@ -71,6 +74,18 @@ ACTUALIZAR REPOSITORIO EN DESARROLLO.
 
 
 ----------------------------------------------------------
+
+
+BAJAR REPOSITORIO LOCAL DESDE REMOTO.
+
+
+-Actualiza nuestro repositorio local con el remoto
+
+
+# git pull
+
+
+---------------------------------------------------------------
 
 
 BORRAR VISTAS DE LA CACHE DEL PROYECTO LARAVEL
