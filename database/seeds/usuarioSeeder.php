@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use App\User;
+use App\Profession;
 
 class usuarioSeeder extends Seeder
 {
@@ -18,18 +20,24 @@ class usuarioSeeder extends Seeder
         //---   SQL LARAVEL
         // $profesion=DB::table('professions')->select('*')->where('profession','=','Desarrollador back-end')->first();
 
-        $profesion=DB::table('professions')
-            ->where('profession','Desarrollador back-end')
+        //$profesion=DB::table('professions')
+        //    ->where('profession','Desarrollador back-end')
+        //    ->value('id');
+
+        //dump($profesion);
+
+        $profesion=Profession::where('profession','Desarrollador back-end')
             ->value('id');
 
-        dump($profesion);
 
-
-        DB::table('users')->insert([
-            'name' => 'DaniBoy',
-            'email' => '666@666',
-            'password' => bcrypt('laravel'),
+        User::create([
+            'name' => 'VincentVega',
+            'email' => '666@5555',
+            'password' => bcrypt('Laravel'),
             'profession_id' => $profesion,
         ]);
+
+        
+        
     }
 }

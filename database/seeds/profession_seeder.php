@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use App\Profession;
 
 class profession_seeder extends Seeder
 {
@@ -12,12 +13,11 @@ class profession_seeder extends Seeder
      */
     public function run()
     {
-       // DB::insert('insert into professions (profession) values (:profession)',["profession"=>"Desarrollador back-end"]);
-        
-
-
+        /* ------  SQL LARAVEL
+        DB::insert('insert into professions (profession) values (:profession)',["profession"=>"Desarrollador back-end"]);
+       
         DB::table('professions')->insert([
-        	'profession' => 'Desarrollador back-end',
+            'profession' => 'Desarrollador back-end',
         ]);
 
         DB::table('professions')->insert([
@@ -27,6 +27,22 @@ class profession_seeder extends Seeder
         DB::table('professions')->insert([
         	'profession' => 'Diseñador web',
         ]);
+
+        */ 
+
+        // Elocuent ORM Laravel 
+        Profession::create([
+                'profession' => 'Desarrollador back-end',
+        ]);
+
+        Profession::create([
+            'profession' => 'Desarrollador front-end',
+        ]);
+
+        Profession::create([
+            'profession' => 'Diseñador web',
+        ]);
+       
 
     }
 }

@@ -248,3 +248,15 @@ MIGRACION DE BD.
 
 
 ---------------------------------------------------------------
+
+
+SEEDERS - QUERIES
+
+# php artisan db:seed 
+	*Ejecuta los seeder que contienen queries.
+
+# php artisan migrate:fresh --seed
+	*Ejecuta un fresh y enseguida un seed.
+
+
+---------------------------------------------------------------

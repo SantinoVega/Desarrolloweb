@@ -19,7 +19,7 @@ class CreateProfessionTable extends Migration
             
             $table->string('profession',100);
             
-            $table->timestamps();
+            //$table->timestamps();
             
         });
     }
