@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','profession_id',
     ];
 
     /**
@@ -26,4 +26,21 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    protected $casts= [
+        'is_admin' => 'boolean'
+    ];  
+
+    public function isadmin()
+    {
+        
+            return $this->email === "666@5555";
+    }
+
+    public static function findEmail($email)
+    {
+        # code...
+        return static::where(compact('email'))->first();
+        
+    }
 }

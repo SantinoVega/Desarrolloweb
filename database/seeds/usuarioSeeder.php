@@ -34,6 +34,7 @@ class usuarioSeeder extends Seeder
             'name' => 'VincentVega',
             'email' => '666@5555',
             'password' => bcrypt('Laravel'),
+            'is_admin' => true,
             'profession_id' => $profesion,
         ]);
 

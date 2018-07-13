@@ -260,3 +260,104 @@ SEEDERS - QUERIES
 
 
 ---------------------------------------------------------------
+
+
+TINKER CONSOLA DINAMICA PHP
+
+
+-Para entrar a la consola dinamica Tinker ejecutamos el siguiente comando desde la carpeta de nuestro proyecto.
+-Podemos realizar pruebas desde esta consola sin teneer que ir al navegador y incluso podemos comprementar los test de vendor/bin/phpunit sin necesidad de ejecutar los seeders.
+-Al entrar al entorno se cargan los seeder => registros y tablas de nuestro modelo.
+
+
+# php artisan tinker
+
+>> use App\Profession
+	*Agrega el directorio al entorno para que encuentre el archivo Profession.
+
+
+>> Profession::all();
+	*Muestra los registros contenidos en el modelo de la relacion(tabla) Profession (directorio App\Profession del proyecto) que son llamados por los seeders.
+
+
+>> User::all();
+	*Muestra los registros de la relacion(tabla) User
+	(directorio App\User del proyecto) que son llamados por los seeders.
+
+>> $profession=Profession::first();
+	*Crea una variable en el entorno con el primer registro.
+
+>> $user=User::find(1);
+	*Crea una variable con el id=1.
+
+
+>> $profession=Profession::first();
+	*Crea una variable con el id=1
+
+
+>> $user::findEmail('000@000');
+	*Busca en la tabla users el email pasado como parametro.
+	*Esta funcion esta definida findEmail en App\User
+
+
+-----------------------------------------------------------
+
+
+TINKER INSERTAR REGISTROS
+
+-Se pueden hacer de dos formas utilizando Eloquent o con la sintaxis de laravel.
+- Se pueden pasar atributos masimos a un registro con un array pero eloquent tiene restringida esta forma para evitar inyeccion de codigo
+- Se puede activar desde App\ se convierten de collecciones(objetos) a array(con un solo objeto) con lo que se puede manipular el objeto
+- Collection{[{
+	 App\User {#2874
+         id: 1,
+         name: "VincentVega",
+         email: "666@5555",
+         is_admin: 1,
+         created_at: "2018-07-13 21:40:44",
+         updated_at: "2018-07-13 21:40:44",
+         profession_id: 1,
+       },
+       App\User {#2872
+         id: 2,
+         name: "SickBoy",
+         email: "000@email",
+         is_admin: 1,
+         created_at: "2018-07-13 21:50:40",
+         updated_at: "2018-07-13 22:15:04",
+         profession_id: 4,
+       },
+      },
+      ],
+      }
+
+
+-Al lograr extraer un solo objeto de la coleccion se puede manipular
+- Array["name"=>"SickBoy","email"=>"000@email","profession_id"=>4];
+
+
+>> $data=["name"=>"SickBoy","email"=>"000@email","profession_id"=>4];
+	*Definimos un array con los valores para 1 objeto
+
+
+>> User::create($data);
+	*Crea e inserta un registro a la tabla users con la sintaxis de eloquent.
+
+
+>> $usuario=new User(["name"=>"SickBoy","email"=>"000@email","profession_id"=>4];)
+	*Crea un objeto y lo asigna a una variable pero no lo inserta a la base de datos.
+
+>> $usuario->name
+>> $usuario->is_admin 
+>> $usuario->profession_id=2
+	*Al tener un objeto en una variable podemos consultar sus atributos y modificarlos
+
+
+>> $usuario->save();
+	*Podemos insertar el objeto a la base de datos con el metodo save();
+	*Obviamente solo se puede hacer teniendo la estructura del objeto en una variable.
+	*Estos metodos solo se pueden aplicar a objetos individuales y no a collecciones,
+
+
+>> $usuario->exist
+	*true si existe
