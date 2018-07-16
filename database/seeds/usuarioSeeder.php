@@ -37,8 +37,30 @@ class usuarioSeeder extends Seeder
             'is_admin' => true,
             'profession_id' => $profesion,
         ]);
+        
+
+        factory(User::class)->create([ 
+            'profession_id'=> '3'
+        ]);
+
+
+        //**    CREA REGISTROS ALEATORIOS...
+        factory(User::class)->create([
+            'profession_id'=> '2'
+            ]);
+
+
+        factory(User::class)->create([ 
+            'profession_id'=> '3'
+        ]);
 
         
+        factory(User::class)->create([ 
+            'profession_id'=> '2'
+        ]);
+
+        factory(User::class,20)->create(
+            ['profession_id'=>rand(1,3)]);
         
     }
 }

@@ -36,7 +36,7 @@ CREAR Y SUBIR UN REPOSITORIO GIT DESDE 0. (Proyecto laravel ya existe)
 -Debemos tener un proyecto (Laravel) ya creado.
 -En terminal navegamos hasta la carpeta del proyecto. y tecleamos.
 
-# git init		
+# git init
 	*Crea un repositorio GIT vacio.
 
 # git add .
@@ -87,6 +87,25 @@ BAJAR REPOSITORIO LOCAL DESDE REMOTO.
 
 ---------------------------------------------------------------
 
+
+GIT CREAR Y ELIMINAR BRANCH EN UN PROYECTO 
+
+# git checkout -b prueba_branch
+	*crea un branch en el proyecto y se cambia a el
+
+
+# git branch prueba_branch
+	*Otra forma de crear un branch sin pasar a el
+
+# git checkout [nombre_brach]
+	*Cambia entre branch del proyecto [se debe especificar nombre]
+
+
+# git brach -d prueba_branch
+	*Elimina un branch
+
+
+----------------------------------------------------------------
 
 BORRAR VISTAS DE LA CACHE DEL PROYECTO LARAVEL
 

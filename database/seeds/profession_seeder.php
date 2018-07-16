@@ -13,6 +13,11 @@ class profession_seeder extends Seeder
      */
     public function run()
     {
+
+
+
+
+
         /* ------  SQL LARAVEL
         DB::insert('insert into professions (profession) values (:profession)',["profession"=>"Desarrollador back-end"]);
        
@@ -42,7 +47,19 @@ class profession_seeder extends Seeder
         Profession::create([
             'profession' => 'Diseñador web',
         ]);
-       
+
+        /**
+         * 
+         Crear registros aleatorios para realizar pruebas
+         */
+        Factory(Profession::class,17)->create();
+
+
+
 
     }
+
+
+
+
 }
